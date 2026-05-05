@@ -2,13 +2,23 @@
 
 {
   home.packages = with pkgs; [
-    tree
-    unzip
-    emacs-pgtk
     google-chrome
-    btop
-    bat
+    brave
+    telegram-desktop
+    wechat-uos
+    qqmusic
+    discord
+    #
+    direnv
+    zellij
     just
+    ripgrep
+    # ripgrep-all
+    emacs-pgtk
+    vscode
     claude-code
+    docker
+    tableplus
+    #
   ];
 }

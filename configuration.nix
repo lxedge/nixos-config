@@ -31,8 +31,11 @@
     LC_TIME = "zh_CN.UTF-8";
   };
 
+  programs.zsh.enable = true;
+
   users.users.miles = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
   };
 
