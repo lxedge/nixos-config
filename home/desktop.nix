@@ -18,7 +18,7 @@
     vscode
     claude-code
     docker
-    tableplus
+    # tableplus
     #
   ];
 }
