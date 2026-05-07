@@ -44,6 +44,12 @@
       ];
     };
 
+    shellInit = ''
+      if [ -f "$HOME/.secrets" ]; then
+        source "$HOME/.secrets"
+      fi
+    '';
+
     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
   };
 

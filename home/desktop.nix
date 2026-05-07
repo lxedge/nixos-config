@@ -16,7 +16,7 @@
     vscode
     claude-code
     docker
-    # tableplus
+    dbeaver-bin
     #
   ];
 }

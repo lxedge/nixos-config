@@ -20,14 +20,15 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-rime
       fcitx5-gtk
+      fcitx5-nord
+      rime-data
       qt6Packages.fcitx5-chinese-addons
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    qt6Packages.fcitx5-configtool
-  ];
+  environment.systemPackages = [ pkgs.rime-ice ];
 }
