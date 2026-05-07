@@ -22,13 +22,12 @@
     type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-rime
-      fcitx5-chinese-addons
       fcitx5-gtk
+      qt6Packages.fcitx5-chinese-addons
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    fcitx5
-    fcitx5-configtool
+    qt6Packages.fcitx5-configtool
   ];
 }

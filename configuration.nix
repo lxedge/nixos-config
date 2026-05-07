@@ -12,6 +12,7 @@
     ./modules/networking.nix
     ./modules/services.nix
     ./modules/packages.nix
+    ./modules/shell.nix
     ./modules/i18n.nix
   ];
 
@@ -25,8 +26,6 @@
       "flakes"
     ];
   };
-
-  programs.zsh.enable = true;
 
   users.users.miles = {
     isNormalUser = true;

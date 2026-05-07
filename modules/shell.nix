@@ -1,42 +1,35 @@
-# This file is not in used.
-# Use module/shell.nix instead.
-
 { config, pkgs, ... }:
 
 {
   programs.direnv = {
     enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
-  };
-
-  programs.dircolors = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-
-    autosuggestion = {
-      enable = true;
-      highlight = "fg=#ff00ff,bg=cyan,bold,underline";
-    };
+    enableLsColors = true;
 
     syntaxHighlighting = {
       enable = true;
+      highlighters = [
+        "main"
+        "pattern"
+      ];
       patterns = {
-        "rm -rf" = "fg=white,bold,bg=red";
+        "rm -rf *" = "fg=white,bold,bg=red";
       };
     };
 
-    history = {
-      expireDuplicatesFirst = true;
-      ignoreAllDups = true;
+    autosuggestions = {
+      enable = true;
+      highlightStyle = "fg=#ff00ff,bold,underline";
     };
 
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       plugins = [
         "sudo"
@@ -50,5 +43,9 @@
         "colored-man-pages"
       ];
     };
+
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
   };
+
+  environment.systemPackages = [ pkgs.zsh-powerlevel10k ];
 }
