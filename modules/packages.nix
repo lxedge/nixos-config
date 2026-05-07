@@ -4,17 +4,25 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    man
+    man-pages
+    man-pages-posix
+    libnotify
     vim
     wget
     nixfmt
     nixd
     tree
+    zip
     unzip
     btop
     bat
     gcc
     cmake
     pkg-config
+    ripgrep
+    # ripgrep-all
+    tokei
   ];
 
   fonts.packages = with pkgs; [

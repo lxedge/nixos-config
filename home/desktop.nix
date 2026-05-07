@@ -12,8 +12,6 @@
     direnv
     zellij
     just
-    ripgrep
-    # ripgrep-all
     emacs-pgtk
     vscode
     claude-code
