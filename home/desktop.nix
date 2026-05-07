@@ -9,7 +9,7 @@
     qqmusic
     discord
     #
-    direnv
+    wezterm
     zellij
     just
     emacs-pgtk

@@ -3,23 +3,36 @@
 {
   programs.home-manager.enable = true;
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   programs.zsh = {
     enable = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    enableBashCompletion = true;
     enableCompletion = true;
+    enableLsColors = true;
 
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-      ignoreDups = true;
-      ignoreAllDups = true;
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+
+    ohMyZsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "sudo"
+        "direnv"
+        "z"
+        "extract"
+        "git"
+        "history"
+        "docker"
+        "docker-compose"
+        "colored-man-pages"
+      ];
     };
-
-    initContent = ''
-      if [ -f "$HOME/.secrets" ]; then
-        source "$HOME/.secrets"
-      fi
-    '';
   };
 }
