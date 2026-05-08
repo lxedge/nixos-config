@@ -35,7 +35,9 @@
     bat
     gcc
     cmake
+    gnumake
     pkg-config
+    libtool
     ripgrep
     # ripgrep-all
     tokei
