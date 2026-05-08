@@ -8,10 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./modules/boot.nix
-    ./modules/networking.nix
-    ./modules/services.nix
-    ./modules/packages.nix
+    ./modules/system.nix
     ./modules/shell.nix
     ./modules/i18n.nix
   ];

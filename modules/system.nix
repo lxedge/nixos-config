@@ -1,6 +1,22 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
+
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+  # services.v2raya.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
