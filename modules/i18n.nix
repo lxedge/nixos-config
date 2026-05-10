@@ -22,11 +22,25 @@
     type = "fcitx5";
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
-      (fcitx5-rime.override { rimeDataPkgs = [ rime-data rime-ice ]; })
+      (fcitx5-rime.override {
+        rimeDataPkgs = [
+          rime-data
+          rime-ice
+        ];
+      })
       fcitx5-gtk
       fcitx5-nord
       qt6Packages.fcitx5-configtool
       qt6Packages.fcitx5-chinese-addons
     ];
+
+    fcitx5.settings.globalOptions = {
+      "Hotkey/TriggerKeys" = {
+        "0" = "Control+Shift_L";
+      };
+      "Hotkey/AltTriggerKeys" = {
+        "0" = "Shift_L";
+      };
+    };
   };
 }

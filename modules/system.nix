@@ -39,6 +39,7 @@
     gnumake
     pkg-config
     libtool
+    openssl
     ripgrep
     # ripgrep-all
     tokei
