@@ -9,6 +9,8 @@
     qqmusic
     discord
     #
+    coredns
+    corectrl
     wezterm
     zellij
     just
@@ -17,6 +19,5 @@
     claude-code
     docker
     dbeaver-bin
-    #
   ];
 }
