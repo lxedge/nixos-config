@@ -48,6 +48,9 @@ Full desktop system for x86_64-linux with KDE Plasma, Zsh, Home Manager, and Rus
 │   └── kucoin.nix             # Go 1.24.6 + KuCoin private repo config
 ├── dotfiles/
 │   └── rime/                  # RIME input method config
+├── skills/
+│   ├── README.md              # Skills index
+│   └── diff-to-sop/           # Convert git diffs into step-by-step SOPs
 └── vpn/                       # WireGuard client configs
 ```
 
@@ -91,6 +94,38 @@ nix develop .#kucoin
    echo 'use flake github:your-username/nixos-config#kucoin' > .envrc
    direnv allow
    ```
+
+## Skills
+
+Custom Claude Code skills in `skills/`.
+
+### diff-to-sop
+
+Converts a git diff into a step-by-step SOP with modified files, functions, and minimal code blocks.
+
+**Install into Claude Code** — add to `.claude/settings.json` in your project:
+
+```json
+{
+  "pluginDirectories": ["/path/to/nixos-config/skills"]
+}
+```
+
+Or pass it per-session:
+
+```bash
+claude --plugin-dir /path/to/nixos-config/skills
+```
+
+**Usage:**
+
+```bash
+# On the latest commit
+git diff HEAD~1 HEAD | claude -p "Use diff-to-sop skill"
+
+# With Chinese output saved to file
+git diff -U10 master..feature | claude -p "Use diff-to-sop skill. Output in Chinese into a markdown file"
+```
 
 ## Key Packages
 
