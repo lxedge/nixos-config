@@ -11,6 +11,20 @@ Personal NixOS configuration using Flakes and Home Manager.
 - **Proxy**: v2rayA (xray backend)
 - **Locale**: en_US.UTF-8 / zh_CN.UTF-8
 
+## What This Flake Provides
+
+### NixOS System (`nixosConfigurations.nixos`)
+Full desktop system for x86_64-linux with KDE Plasma, Zsh, Home Manager, and Rust (via rust-overlay).
+
+### Dev Shells (`devShells`) — Linux & macOS (x86_64-linux, aarch64-darwin)
+
+| Shell | Language / Stack | Key Tools |
+|-------|-----------------|-----------|
+| `base` | General | git, curl, direnv, jq, yq |
+| `go` | Go + gRPC/protobuf | go, gopls, delve, goctl, protoc, protoc-gen-go |
+| `evm` | EVM / Web3 | Node.js 24, TypeScript, solc, Foundry, pnpm, yarn |
+| `kucoin` | Go (KuCoin backend) | Go 1.24.6, gopls, delve, goctl, grpcurl |
+
 ## Structure
 
 ```
