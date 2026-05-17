@@ -21,8 +21,8 @@ pkgs.mkShell {
 
   shellHook = ''
     echo "------ Go development env loaded:"
-    echo "--- go     $(go version)"
-    echo "--- goctl  $(goctl --version)"
-    echo "--- protoc $(protoc --version)"
+    echo "--- go:     $(go version)"
+    echo "--- goctl:  $(goctl --version)"
+    echo "--- protoc: $(protoc --version)"
   '';
 }

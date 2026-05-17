@@ -30,12 +30,12 @@ pkgs.mkShell {
 
   shellHook = ''
     echo "------ EVM development env loaded:"
-    echo "--- node   $(node -v)"
-    echo "--- npm    $(npm -v)"
-    echo "--- pnpm   $(pnpm -v)"
-    echo "--- yarn   $(yarn -v)"
-    echo "--- tsc    $(tsc -v)"
-    echo "--- solc   $(solc --version)"
-    echo "--- forge  $(forge --version)"
+    echo "--- node:  $(node -v)"
+    echo "--- npm:   $(npm -v)"
+    echo "--- pnpm:  $(pnpm -v)"
+    echo "--- yarn:  $(yarn -v)"
+    echo "--- tsc:   $(tsc -v)"
+    echo "--- solc:  $(solc --version)"
+    echo "--- forge: $(forge --version)"
   '';
 }
