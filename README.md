@@ -24,9 +24,14 @@ Personal NixOS configuration using Flakes and Home Manager.
 │   └── i18n.nix               # Locale, timezone, fcitx5
 ├── home/
 │   ├── default.nix            # Home Manager entry point (user: miles)
-│   ├── desktop.nix            # GUI apps (Chrome, Emacs, VS Code, etc.)
+│   ├── desktop.nix            # GUI apps
 │   ├── git.nix                # Git configuration
 │   └── dotfiles.nix           # Dotfile management
+├── shells/
+│   ├── base.nix               # Base tools (git, curl, direnv, jq, yq)
+│   ├── go.nix                 # Go + protobuf toolchain
+│   ├── evm.nix                # Node.js, Solidity, Foundry (cross-platform)
+│   └── kucoin.nix             # Go 1.24.6 + KuCoin private repo config
 ├── dotfiles/
 │   └── rime/                  # RIME input method config
 └── vpn/                       # WireGuard client configs
@@ -40,11 +45,42 @@ sudo nixos-rebuild switch --flake .#nixos
 
 # Update flake inputs
 nix flake update
+
+# Enter a dev shell
+nix develop .#base
+nix develop .#go
+nix develop .#evm
+nix develop .#kucoin
 ```
+
+### macOS (with direnv)
+
+1. Install [Nix](https://nixos.org/download/) and enable flakes:
+   ```bash
+   echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
+   ```
+
+2. Install direnv and hook it into your shell (`~/.zshrc`):
+   ```bash
+   brew install direnv
+   echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+   ```
+
+3. In your project directory, create an `.envrc`:
+   ```bash
+   echo 'use flake /path/to/nixos-config#kucoin' > .envrc
+   direnv allow
+   ```
+
+   Or to use a shell from this repo directly:
+   ```bash
+   echo 'use flake github:your-username/nixos-config#kucoin' > .envrc
+   direnv allow
+   ```
 
 ## Key Packages
 
-**System**: vim, ripgrep, btop, bat, gcc, cmake, tokei, nixd, nixfmt, tree, zip, unzip
+**System**: vim, ripgrep, btop, bat, gcc, cmake, nixd, nixfmt, tree, zip, unzip
 
 **Desktop**: Google Chrome, Brave, Telegram, WeChat, QQ Music, Discord, Emacs, VS Code, WezTerm, Zellij, Claude Code, DBeaver, just
 
