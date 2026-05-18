@@ -14,6 +14,11 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    solc = {
+      url = "github:hellwolf/solc.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +28,7 @@
       # flake-utils,
       home-manager,
       rust-overlay,
+      solc,
       ...
     }@inputs:
     let
@@ -35,7 +41,10 @@
         system:
         import nixpkgs {
           inherit system;
-          overlays = [ rust-overlay.overlays.default ];
+          overlays = [
+            rust-overlay.overlays.default
+            solc.overlay
+          ];
           config.allowUnfree = true;
         };
     in
@@ -60,7 +69,10 @@
 
               baseShell = import ./shells/base.nix { pkgs = linuxPkgs; };
               goShell = import ./shells/go.nix { pkgs = linuxPkgs; };
-              evmShell = import ./shells/evm.nix { pkgs = linuxPkgs; };
+              evmShell = import ./shells/evm.nix {
+                pkgs = linuxPkgs;
+                inherit solc;
+              };
             in
             {
               nixpkgs.overlays = [ rust-overlay.overlays.default ];
@@ -85,7 +97,10 @@
           base = import ./shells/base.nix { pkgs = targetPkgs; };
           go = import ./shells/go.nix { pkgs = targetPkgs; };
           go-kucoin = import ./shells/kucoin.nix { pkgs = targetPkgs; };
-          evm = import ./shells/evm.nix { pkgs = targetPkgs; };
+          evm = import ./shells/evm.nix {
+            pkgs = targetPkgs;
+            inherit solc;
+          };
         }
       );
     };

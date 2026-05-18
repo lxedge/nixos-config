@@ -13,9 +13,9 @@
   networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
+  services.xserver.xkb.options = "ctrl:nocaps";
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  services.xserver.xkb.options = "ctrl:nocaps";
   services.v2raya.enable = true;
   services.v2raya.cliPackage = pkgs.xray;
 

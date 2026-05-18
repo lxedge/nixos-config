@@ -1,32 +1,23 @@
-{ pkgs }:
+{ pkgs, solc }:
 
 pkgs.mkShell {
   name = "evm-dev-env";
 
-  buildInputs =
-    with pkgs;
-    [
-      nodejs_24
-      typescript
-      typescript-language-server
-      prettier
-      eslint
-      pnpm
-      yarn
-      solc
-      vscode-solidity-server
-      foundry
-    ]
-    ++ (
-      if stdenv.isDarwin then
-        [
-          libiconv
-          darwin.apple_sdk.frameworks.Security
-          darwin.apple_sdk.frameworks.SystemConfiguration
-        ]
-      else
-        [ ]
-    );
+  buildInputs = with pkgs; [
+    nodejs_24
+    typescript
+    typescript-language-server
+    prettier
+    eslint
+    pnpm
+    yarn
+    solc_0_8_17
+    # solc-select
+    vscode-solidity-server
+    foundry
+
+    (solc.mkDefault pkgs solc_0_8_17)
+  ];
 
   shellHook = ''
     echo "------ EVM development env loaded:"
