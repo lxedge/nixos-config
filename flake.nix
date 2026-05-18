@@ -84,8 +84,8 @@
         {
           base = import ./shells/base.nix { pkgs = targetPkgs; };
           go = import ./shells/go.nix { pkgs = targetPkgs; };
+          go-kucoin = import ./shells/kucoin.nix { pkgs = targetPkgs; };
           evm = import ./shells/evm.nix { pkgs = targetPkgs; };
-          kucoin = import ./shells/kucoin.nix { pkgs = targetPkgs; };
         }
       );
     };
