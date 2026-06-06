@@ -4,6 +4,10 @@ let
   privateRepo = "bitbucket.kucoin.net";
 in
 pkgs.mkShell {
+  buildInputs = [
+    pkgs.go_1_25
+  ];
+
   shellHook = ''
     if command -v go >/dev/null 2>&1; then
       go env -w GOPRIVATE="${privateRepo}"

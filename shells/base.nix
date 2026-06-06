@@ -14,5 +14,6 @@ pkgs.mkShell {
     yq
     just
     zellij
+    kdlfmt
   ];
 }
