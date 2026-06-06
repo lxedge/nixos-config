@@ -28,5 +28,6 @@ pkgs.mkShell {
     echo "--- tsc:   $(tsc -v)"
     echo "--- solc:  $(solc --version)"
     echo "--- forge: $(forge --version)"
+    echo "------ EVM development env loaded."
   '';
 }

@@ -12,5 +12,7 @@ pkgs.mkShell {
     nix-direnv
     jq
     yq
+    just
+    zellij
   ];
 }

@@ -13,6 +13,7 @@ pkgs.mkShell {
     gofumpt
     grpcurl
     goctl
+    air
     protobuf
     protoc-gen-doc
     protoc-gen-go
@@ -20,9 +21,13 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
+    export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$PATH
+
     echo "------ Go development env loaded:"
     echo "--- go:     $(go version)"
     echo "--- goctl:  $(goctl --version)"
     echo "--- protoc: $(protoc --version)"
+    echo "------ Go development env loaded."
   '';
 }
