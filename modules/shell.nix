@@ -38,9 +38,8 @@
         "extract"
         "git"
         "history"
-        "docker"
-        "docker-compose"
         "colored-man-pages"
+        "podman"
       ];
     };
 

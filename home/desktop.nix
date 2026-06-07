@@ -12,12 +12,11 @@
     coredns
     corectrl
     wezterm
-    zellij
-    just
     emacs-pgtk
     vscode
     claude-code
-    docker
     dbeaver-bin
+    podman
+    podman-tui
   ];
 }
