@@ -15,5 +15,7 @@ pkgs.mkShell {
     just
     zellij
     kdlfmt
+    podman
+    podman-tui
   ];
 }
